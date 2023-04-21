@@ -217,3 +217,51 @@ ALTER TABLE schoolLike
 ADD CONSTRAINT EC_schoolLike CONNECTION (groupmate TO school);
 GO
 
+INSERT INTO schoolLike ($from_id, $to_id, rating)
+VALUES 
+((SELECT $node_id FROM groupmate WHERE ID = 1),
+ (SELECT $node_id FROM school WHERE ID = 1), 9),
+
+ ((SELECT $node_id FROM groupmate WHERE ID = 6),
+ (SELECT $node_id FROM school WHERE ID = 1), 10),
+
+ ((SELECT $node_id FROM groupmate WHERE ID = 2),
+ (SELECT $node_id FROM school WHERE ID = 2), 7),
+
+ ((SELECT $node_id FROM groupmate WHERE ID = 9),
+ (SELECT $node_id FROM school WHERE ID = 3), 6),
+
+ ((SELECT $node_id FROM groupmate WHERE ID = 15),
+ (SELECT $node_id FROM school WHERE ID = 3), 10),
+
+
+
+ ((SELECT $node_id FROM groupmate WHERE ID = 11),
+ (SELECT $node_id FROM school WHERE ID = 4), 7),
+
+ ((SELECT $node_id FROM groupmate WHERE ID = 8),
+ (SELECT $node_id FROM school WHERE ID = 5), 5),
+
+((SELECT $node_id FROM groupmate WHERE ID = 14),
+ (SELECT $node_id FROM school WHERE ID = 6), 9),
+((SELECT $node_id FROM groupmate WHERE ID = 13),
+ (SELECT $node_id FROM school WHERE ID = 6), 9),
+
+  ((SELECT $node_id FROM groupmate WHERE ID = 3),
+ (SELECT $node_id FROM school WHERE ID = 7), 10),
+
+  ((SELECT $node_id FROM groupmate WHERE ID = 4),
+ (SELECT $node_id FROM school WHERE ID = 7), 10),
+
+  ((SELECT $node_id FROM groupmate WHERE ID = 7),
+ (SELECT $node_id FROM school WHERE ID = 7), 9),
+
+  ((SELECT $node_id FROM groupmate WHERE ID = 5),
+ (SELECT $node_id FROM school WHERE ID = 8), 0),
+
+  ((SELECT $node_id FROM groupmate WHERE ID = 10),
+ (SELECT $node_id FROM school WHERE ID = 9), 10),
+
+  ((SELECT $node_id FROM groupmate WHERE ID = 12),
+ (SELECT $node_id FROM school WHERE ID = 10), 6);
+
