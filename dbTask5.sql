@@ -20,3 +20,17 @@ FROM groupmate AS groupmate1
  , groupmate AS groupmate3
 WHERE MATCH(groupmate1-(cheats1)->groupmate2-(cheats2)->groupmate3)
  AND groupmate1.name = N'Гринько Кирилл Владимирович';
+
+
+
+--в какой школе учился и как ее оценил друг по списыванию кирилла
+ SELECT groupmate2.name AS person
+ , school.name AS restaurant
+ , schoolLike.rating
+FROM groupmate AS groupmate1
+ , groupmate AS groupmate2
+ , schoolLike
+ , cheatsFrom
+ , school
+WHERE MATCH(groupmate1-(cheatsFrom)->groupmate2-(schoolLike)->school)
+ AND groupmate1.name = N'Гринько Кирилл Владимирович';
